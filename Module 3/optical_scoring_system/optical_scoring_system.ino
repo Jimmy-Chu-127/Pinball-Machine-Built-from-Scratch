@@ -8,6 +8,7 @@ const int displayTwoPin = 10;
 
 const int IRLedPin = 13;
 const int IRRevPin = A0; 
+int IRRevVal;
 const int threshold = 600;
 int score = 0; // player's score
 int ballDetected = false; // indicator for pinball detection
@@ -64,16 +65,11 @@ void setup() {
 }
 
 void loop() {
-  int IRRevVal = analogRead(IRRevPin); // Read the voltage drop across the photodiode 
+  
+  IRRevVal = analogRead(IRRevPin); // Read the voltage drop across the photodiode 
 
-  // If the value exceed the threshold and the system did not detect a ball 
-  // passing just before, increment the score by 1. Reset the timer.
-  if (IRRevVal > threshold && ballDetected == false) {
-    score++;
-    ballDetected = true;
-    start_time = millis();
-    buzzerEnabled = true;
-  }
+  ballDetection();
+  
   Serial.print("IRRevVal = ");
   Serial.print(IRRevVal);
   Serial.print("\t Score = ");
@@ -88,6 +84,18 @@ void loop() {
 
   if (now_time - start_time > 500 && ballDetected == true) {
     restartBallDetection(); // Reset the ball detection indicator
+  }
+}
+
+
+void ballDetection(){
+  // If the value exceed the threshold and the system did not detect a ball 
+  // passing just before, increment the score by 1. Reset the timer.
+  if (IRRevVal > threshold && ballDetected == false) {
+    score++;
+    ballDetected = true;
+    start_time = millis();
+    buzzerEnabled = true;
   }
 }
 
@@ -122,6 +130,7 @@ void restartBallDetection() {
   // Reset the indicator
     ballDetected = false;
     buzzerEnabled = false;
+    start_time = now_time;
 }
 
 

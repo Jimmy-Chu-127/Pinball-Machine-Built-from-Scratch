@@ -8,7 +8,7 @@ const int displayTwoPin = 10;
 
 const int IRLedPin = 13;
 const int IRRevPin = A0; 
-const int threshold = 200;
+const int threshold = 600;
 int score = 0; // player's score
 int ballDetected = false; // indicator for pinball detection
 
@@ -64,7 +64,6 @@ void setup() {
 }
 
 void loop() {
-  now_time = millis();
   int IRRevVal = analogRead(IRRevPin); // Read the voltage drop across the photodiode 
 
   // If the value exceed the threshold and the system did not detect a ball 
@@ -83,7 +82,8 @@ void loop() {
   if (buzzerEnabled == true) {
     ringBuzzer(); // ring the buzzer
   }
-  
+
+  now_time = millis();
   displayScore(score); // Display the score on the two-digit 7-segment display
 
   if (now_time - start_time > 500 && ballDetected == true) {
@@ -96,8 +96,8 @@ void displayScore(int score) {
   int i = score / 10; // first digit
   int j = score % 10; // second digit
 
-  // 50Switch between the two digits every 10 milliseconds
-  // Serial.println(now_time - display_time);
+  //  Switch between the two digits every 10 milliseconds
+  Serial.println(now_time - display_time);
   if(now_time - display_time > 80){
     display_time = now_time;
   }else if(now_time - display_time < 40){

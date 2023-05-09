@@ -96,22 +96,23 @@ void displayScore(int score) {
   int i = score / 10; // first digit
   int j = score % 10; // second digit
 
-  //  Switch between the two digits every 10 milliseconds
-  if (now_time - display_time < 10) {
+  // 50Switch between the two digits every 10 milliseconds
+  // Serial.println(now_time - display_time);
+  if(now_time - display_time > 80){
+    display_time = now_time;
+  }else if(now_time - display_time < 40){
     digitalWrite(displayOnePin, HIGH);
     digitalWrite(displayTwoPin, LOW);
     digitalWrite(latchPin, LOW);
-    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[i]);
-    digitalWrite(latchPin, HIGH);
-    digitalWrite(displayOnePin, LOW);
-  } else if (10 <= now_time - display_time < 20) {
-    digitalWrite(displayTwoPin, HIGH);
-    digitalWrite(latchPin, LOW);
     shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[j]);
     digitalWrite(latchPin, HIGH);
-    digitalWrite(displayTwoPin, LOW);      
+    digitalWrite(displayOnePin, LOW);  
   }else{
-    display_time = millis();
+    digitalWrite(displayTwoPin, HIGH);
+    digitalWrite(latchPin, LOW);
+    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[i]);
+    digitalWrite(latchPin, HIGH);
+    digitalWrite(displayTwoPin, LOW);  
   }
   
 }

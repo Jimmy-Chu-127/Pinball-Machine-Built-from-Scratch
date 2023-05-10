@@ -70,10 +70,10 @@ void loop() {
 
   ballDetection();
   
-  Serial.print("IRRevVal = ");
-  Serial.print(IRRevVal);
-  Serial.print("\t Score = ");
-  Serial.println(score);
+  //Serial.print("IRRevVal = ");
+  //Serial.print(IRRevVal);
+  //Serial.print("\t Score = ");
+  //Serial.println(score);
 
   if (buzzerEnabled == true) {
     ringBuzzer(); // ring the buzzer
@@ -105,24 +105,23 @@ void displayScore(int score) {
   int j = score % 10; // second digit
 
   //  Switch between the two digits every 10 milliseconds
-  Serial.println(now_time - display_time);
-  if(now_time - display_time > 80){
+  //Serial.println(now_time - display_time);
+  if(now_time - display_time > 20){
     display_time = now_time;
-  }else if(now_time - display_time < 40){
+  }else if(now_time - display_time < 10){
     digitalWrite(displayOnePin, HIGH);
     digitalWrite(displayTwoPin, LOW);
     digitalWrite(latchPin, LOW);
-    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[j]);
+    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[i]);
     digitalWrite(latchPin, HIGH);
     digitalWrite(displayOnePin, LOW);  
   }else{
     digitalWrite(displayTwoPin, HIGH);
     digitalWrite(latchPin, LOW);
-    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[i]);
+    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[j]);
     digitalWrite(latchPin, HIGH);
     digitalWrite(displayTwoPin, LOW);  
   }
-  
 }
 
 

@@ -1,5 +1,5 @@
-const int wheel1Pin = 6; 
-const int wheel2Pin = 7;
+const int wheel1Pin = 7; 
+const int wheel2Pin = 8;
 const int pot1Pin = A0;
 int pot1Val;
 

@@ -1,8 +1,8 @@
-const int irLED1Pin = 12;
+const int irLED1Pin = 11;
 const int irRev1Pin = A2; 
 int ir1Val;
 
-const int irLED2Pin = 13;
+const int irLED2Pin = 12;
 const int irRev2Pin = A3; 
 int ir2Val;
 

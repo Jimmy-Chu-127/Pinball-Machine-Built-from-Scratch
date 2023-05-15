@@ -23,6 +23,7 @@ FSMState currentState;
 
 int ledState;
 int buzzerState;
+int servoState;
 int score = 0;
 
 // Define functions
@@ -45,8 +46,9 @@ void setup() {
   setupSpinningWheel();
   setupBuzzer();
   setupLED();
+  setupServo;
 
-  currentState = RESET;
+  currentState = ON;
 }
 
 void loop() {
@@ -55,7 +57,7 @@ void loop() {
   switch (currentState) {
     case ON:
       // Check the optical scoring system and the corresponding timer
-      if (ir1BallDetected() == HIGH && nowTime - ir1Time > 300 ){
+      if (ir1BallDetected() == HIGH && nowTime - ir1Time > 300){
         currentState = SCORE;
         ir1Time = nowTime;
       }
@@ -98,6 +100,7 @@ void loop() {
       
       ledState = 0;
       buzzerState = 0;
+      servoState = 0;
       
       break;
 
@@ -108,6 +111,7 @@ void loop() {
 
       ledState = 1;
       buzzerState = 1;   
+      servoState = 0;
       
       break;
 
@@ -117,12 +121,14 @@ void loop() {
 
       ledState = 2;
       buzzerState = 2;
+      servoState = 1;
       
       break;
   }
 
   displayCurrentScore();
   setWheelSpeed();
-  ledSystem(ledState);
-  buzzerSystem(buzzerState);
+  ledSystem(ledState, nowTime);
+  buzzerSystem(buzzerState, nowTime);
+  servoSystem(servoState, nowTime);
 }

@@ -1,6 +1,6 @@
-const int dataPin = 4;
-const int latchPin = 3; 
-const int clkPin = 2;
+const int dataPin = 34;
+const int latchPin = 33; 
+const int clkPin = 32;
 const int displayOnePin = 9;
 const int displayTwoPin = 10; 
 

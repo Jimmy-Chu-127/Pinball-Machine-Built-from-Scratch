@@ -1,5 +1,5 @@
-const int flipper1Pin = 2; 
-const int flipper2Pin = 3;
+const int flipper1Pin = 5; 
+const int flipper2Pin = 6;
 const int flipper1ButtonPin = 22;
 const int flipper2ButtonPin = 23; 
 

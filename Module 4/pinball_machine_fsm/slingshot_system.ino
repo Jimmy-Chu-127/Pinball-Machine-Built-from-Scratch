@@ -1,7 +1,7 @@
-const int slingshot1Pin = 4;
-const int slingshot2Pin = 5;
-const int slingshot1SwitchPin = 24;
-const int slingshot2SwitchPin = 25; 
+const int slingshot1Pin = 24;
+const int slingshot2Pin = 25;
+const int slingshot1SwitchPin = 26;
+const int slingshot2SwitchPin = 27; 
 
 //Set up pins
 void setupSlingshot() {

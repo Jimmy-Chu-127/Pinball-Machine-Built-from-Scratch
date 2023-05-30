@@ -1,5 +1,5 @@
-const int slingshot1Pin = 24;
-const int slingshot2Pin = 25;
+const int slingshot1Pin = 7;
+const int slingshot2Pin = 8;
 const int slingshot1SwitchPin = 26;
 const int slingshot2SwitchPin = 27; 
 

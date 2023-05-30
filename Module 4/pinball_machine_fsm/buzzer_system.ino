@@ -15,18 +15,18 @@ void buzzerSystem(int state, long curTime) {
         noTone(buzzerPin);
         buzzerTime = curTime;
       }else if (buzzerOn == HIGH){
-        // Turn on buzzer for 1s
-        if (curTime - buzzerTime < 1000){
-          tone(buzzerPin, 1000);
+        // Turn on buzzer for 0.3s
+        if (curTime - buzzerTime < 300){
+          tone(buzzerPin, 2000);
         }else{
           noTone(buzzerPin);
           buzzerOn = LOW;
           buzzerTime = curTime;
         }
       }else{
-        // Turn on buzzer of 3s
-        if (curTime - buzzerTime < 3000){
-          tone(buzzerPin, 200);
+        // Turn on buzzer of 1.5s
+        if (curTime - buzzerTime < 1500){
+          tone(buzzerPin, 3000);
         }else{
           noTone(buzzerPin);
           buzzerReset = LOW;

@@ -15,14 +15,16 @@ void servoSystem(int state, long curTime){
     case 0:
       if(servoOn == LOW){
         // Keep the path closed
-        servo.write(0);
+        servo.write(90);
         servoTime = curTime;
       }else{
         // Open the path for 3s
+        Serial.println("servo on");
         if(curTime - servoTime < 3000){
-          servo.write(90);
-        }else{
+          Serial.println(1);
           servo.write(0);
+        }else{
+          servo.write(90);
           servoTime = curTime;
           servoOn = LOW;
         }
@@ -34,7 +36,7 @@ void servoSystem(int state, long curTime){
       break;
       
     default:
-    servo.write(0);
+      servo.write(90);
       break;
   }
 }

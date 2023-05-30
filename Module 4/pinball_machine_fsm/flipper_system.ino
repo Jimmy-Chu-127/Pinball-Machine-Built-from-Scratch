@@ -27,8 +27,28 @@ void flipper1Flip() {
   digitalWrite(flipper1Pin, LOW);
 }
 
+// Turn on flipper 1
+void flipper1On() {
+  digitalWrite(flipper1Pin, HIGH);
+}
+
+// Turn off flipper 1
+void flipper1Off() {
+  digitalWrite(flipper1Pin, LOW);
+}
+
 // Turn on flipper 2
 void flipper2Flip() {
   digitalWrite(flipper2Pin, HIGH);
+  digitalWrite(flipper2Pin, LOW);
+}
+
+// Turn on flipper 2
+void flipper2On() {
+  digitalWrite(flipper2Pin, HIGH);
+}
+
+// Turn off flipper 2
+void flipper2Off() {
   digitalWrite(flipper2Pin, LOW);
 }

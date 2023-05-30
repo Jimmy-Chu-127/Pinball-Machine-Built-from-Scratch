@@ -81,24 +81,44 @@ void loop() {
         flipper1Flip();
         flipper1Time = nowTime;
       }
+//      if (flipper1Button() == HIGH){
+//        flipper1On();
+//      }else{
+//        flipper1Off();
+//      }
 
       // Check flipper2 system and the corresponding timer
       if (flipper2Button() == HIGH && nowTime - flipper2Time > 300){
         flipper2Flip();
         flipper2Time = nowTime;
       }
+//      if (flipper2Button() == HIGH){
+//        flipper2On();
+//      }else{
+//        flipper2Off();
+//      }
 
       // Check slingshot1 system and the corresponding timer
       if (slingshot1Switch() == HIGH && nowTime - slingshot1Time > 300){
         slingshot1Shot();
         slingshot1Time = nowTime;
       }
+//      if (slingshot1Switch == HIGH){
+//        slingshot1On();
+//      }else{
+//        slingshot1Off();
+//      }
 
       // Check slingshot2 system and the corresponding timer
       if (slingshot2Switch() == HIGH && nowTime - slingshot2Time > 300){
         slingshot2Shot();
         slingshot2Time = nowTime;
       }
+//      if (slingshot2Switch == HIGH){
+//        slingshot2On();
+//      }else{
+//        slingshot2Off();
+//      }      
 
       // Check the resetting system and the corresponding timer
       if (ir3BallDetected() == HIGH && nowTime - ir2Time > 300 ){
@@ -106,12 +126,12 @@ void loop() {
           roundCnt--;
           if(roundCnt == 0){
             currentState = RESET;
-            buzzerState = 2; // ring for 0.3s
-            servoState = 1;
+            buzzerState = 2; // ring for 1.5s
+            servoState = 1; // round lost state
           }else{
             currentState = ON;
-            buzzerState = 1; // ring for 1.5s
-            servoState = 1;
+            buzzerState = 1; // ring for 0.3s
+            servoState = 1; // round lost state
           }
         ir3Time = nowTime;
       }else{
@@ -129,19 +149,19 @@ void loop() {
       currentState = ON; // return to ON state
 
       ledState = 1;
-      buzzerState = 0;   
+      buzzerState = 3; // ring for 0.1s
       servoState = 0;
       
       break;
 
     case RESET:
       score = 0;
-      roundCnt = 3;
+      roundCnt = 3; // reset round count
       currentState = ON; // return to ON state
 
       ledState = 2;
-      buzzerState = 2;
-      servoState = 1;
+      buzzerState = 2; // ring for 1.5s
+      servoState = 1; // round lost state
       
       break;
   }

@@ -1,6 +1,7 @@
 const int buzzerPin = 2;
-int buzzerOn = LOW; // indicator for scoring
+int buzzerRoundLost = LOW; // indicator for round lost
 int buzzerReset = LOW; // indicator for resetting
+int buzzerScore = LOW; // indicator for scoring
 long buzzerTime = millis();
 
 void setupBuzzer(){
@@ -10,17 +11,26 @@ void setupBuzzer(){
 void buzzerSystem(int state, long curTime) {
   switch(state){
     case 0:
-      if (buzzerOn == LOW && buzzerReset == LOW){
+      if (buzzerRoundLost == LOW && buzzerReset == LOW && buzzerScore == LOW){
         // Keep buzzer off in normal state
         noTone(buzzerPin);
         buzzerTime = curTime;
-      }else if (buzzerOn == HIGH){
+      }else if (buzzerScore == HIGH){
+        // Turn on buzzer for 0.1s
+        if (curTime - buzzerTime < 100){
+          tone(buzzerPin, 1000);
+        }else{
+          noTone(buzzerPin);
+          buzzerScore = LOW;
+          buzzerTime = curTime;
+        }
+      }else if (buzzerRoundLost == HIGH){
         // Turn on buzzer for 0.3s
         if (curTime - buzzerTime < 300){
           tone(buzzerPin, 2000);
         }else{
           noTone(buzzerPin);
-          buzzerOn = LOW;
+          buzzerRoundLost = LOW;
           buzzerTime = curTime;
         }
       }else{
@@ -35,11 +45,19 @@ void buzzerSystem(int state, long curTime) {
       }
       break;
     case 1:
-      buzzerOn = HIGH;
+      buzzerRoundLost = HIGH;
+      buzzerReset = LOW;
+      buzzerScore = LOW;
       break;
     case 2:
-      buzzerOn = LOW;
+      buzzerRoundLost = LOW;
       buzzerReset = HIGH;
+      buzzerScore = LOW;
+      break;
+    case 3:
+      buzzerScore = HIGH;
+      buzzerRoundLost = LOW;
+      buzzerReset = LOW;
       break;
     default:
       noTone(buzzerPin);

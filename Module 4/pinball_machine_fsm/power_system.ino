@@ -4,6 +4,6 @@ void setupPower(){
   pinMode(powerButtonPin, INPUT);
 }
 
-void powerButtonOn(){
+int powerButtonOn(){
   return digitalRead(powerButtonPin); //check if the system is turned on
 }

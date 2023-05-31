@@ -62,11 +62,11 @@ void loop() {
     currentState = ON;
   }else{
     currentState = OFF;
-    
   }
+  
   switch (currentState) {
     case OFF:
-      break;      
+      return;   
     case ON:
       // Check the optical scoring system and the corresponding timer
       if (ir1BallDetected() == HIGH && nowTime - ir1Time > 300){

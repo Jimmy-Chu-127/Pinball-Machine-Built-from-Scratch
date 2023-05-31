@@ -17,6 +17,7 @@ long ir3Time = millis();
 // Define states
 enum FSMState {
   ON,
+  OFF,
   SCORE,
   RESET
 };
@@ -50,21 +51,29 @@ void setup() {
   setupBuzzer();
   setupLED();
   setupServo();
+  setupPower();
 
-  currentState = ON;
+  currentState = OFF;
 }
 
 void loop() {
   nowTime = millis();
-  
+  if (powerButtonOn() == HIGH){
+    currentState = ON;
+  }else{
+    currentState = OFF;
+    
+  }
   switch (currentState) {
+    case OFF:
+      break;      
     case ON:
       // Check the optical scoring system and the corresponding timer
       if (ir1BallDetected() == HIGH && nowTime - ir1Time > 300){
         currentState = SCORE;
         ir1Time = nowTime;
       }
-
+//
       if (ir2BallDetected() == HIGH && nowTime - ir2Time > 300){
         currentState = SCORE;
         ir2Time = nowTime;
@@ -77,26 +86,27 @@ void loop() {
       }
 
       // Check flipper1 system and the corresponding timer
-      if (flipper1Button() == HIGH && nowTime - flipper1Time > 300){
-        flipper1Flip();
-        flipper1Time = nowTime;
-      }
-//      if (flipper1Button() == HIGH){
-//        flipper1On();
-//      }else{
-//        flipper1Off();
+//      if (flipper1Button() == HIGH && nowTime - flipper1Time > 300){
+//        flipper1Flip();
+//        flipper1Time = nowTime;
 //      }
+      if (flipper1Button() == HIGH){
+        //Serial.print(1);
+        flipper1On();
+      }else{
+        flipper1Off();
+      }
 
       // Check flipper2 system and the corresponding timer
-      if (flipper2Button() == HIGH && nowTime - flipper2Time > 300){
-        flipper2Flip();
-        flipper2Time = nowTime;
-      }
-//      if (flipper2Button() == HIGH){
-//        flipper2On();
-//      }else{
-//        flipper2Off();
+//      if (flipper2Button() == HIGH && nowTime - flipper2Time > 300){
+//        flipper2Flip();
+//        flipper2Time = nowTime;
 //      }
+      if (flipper2Button() == HIGH){
+        flipper2On();
+      }else{
+        flipper2Off();
+      }
 
       // Check slingshot1 system and the corresponding timer
       if (slingshot1Switch() == HIGH && nowTime - slingshot1Time > 300){
@@ -168,9 +178,9 @@ void loop() {
 
 //  displayCurrentScore();
 //  Serial.println(score);
-  if(servoState == 1){
-  Serial.println(servoState);
-  }
+//  if(servoState == 1){
+//  Serial.println(servoState);
+//  }
   setDisplay(score);
   setWheelSpeed();
   ledSystem(ledState, nowTime);

@@ -19,9 +19,9 @@ void servoSystem(int state, long curTime){
         servoTime = curTime;
       }else{
         // Open the path for 3s
-        Serial.println("servo on");
+        //Serial.println("servo on");
         if(curTime - servoTime < 3000){
-          Serial.println(1);
+          //Serial.println(1);
           servo.write(0);
         }else{
           servo.write(90);

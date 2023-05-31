@@ -13,6 +13,7 @@ void setupFlipper() {
 
 // Read from button 1
 int flipper1Button() {
+  //Serial.println(digitalRead(flipper1ButtonPin));
   return digitalRead(flipper1ButtonPin);
 }
 

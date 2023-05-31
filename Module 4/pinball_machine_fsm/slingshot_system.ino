@@ -1,5 +1,5 @@
-const int slingshot1Pin = 24;
-const int slingshot2Pin = 25;
+const int slingshot1Pin = 7;
+const int slingshot2Pin = 8;
 const int slingshot1SwitchPin = 26;
 const int slingshot2SwitchPin = 27; 
 
@@ -21,14 +21,34 @@ int slingshot2Switch() {
   return digitalRead(slingshot2SwitchPin);
 }
 
-// Turn on slingshot 1
+// Turn on and off slingshot 1
 void slingshot1Shot() {
   digitalWrite(slingshot1Pin, HIGH);
+  digitalWrite(slingshot1Pin, LOW);
+}
+
+// Turn on slingshot 1
+void slingshot1On() {
+  digitalWrite(slingshot1Pin, HIGH);
+}
+
+// Turn off slingshot 1
+void slingshot1Off() {
   digitalWrite(slingshot1Pin, LOW);
 }
 
 // Turn on slingshot 2
 void slingshot2Shot() {
   digitalWrite(slingshot2Pin, HIGH);
+  digitalWrite(slingshot2Pin, LOW);
+}
+
+// Turn on slingshot 2
+void slingshot2On() {
+  digitalWrite(slingshot2Pin, HIGH);
+}
+
+// Turn off slingshot 2
+void slingshot2Off() {
   digitalWrite(slingshot2Pin, LOW);
 }

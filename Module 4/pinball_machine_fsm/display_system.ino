@@ -1,8 +1,8 @@
 const int dataPin = 34;
 const int latchPin = 33; 
 const int clkPin = 32;
-const int displayOnePin = 9;
-const int displayTwoPin = 10; 
+//const int displayOnePin = 9;
+//const int displayTwoPin = 10; 
 
 const byte digits_anode[] = {
   B00000001, // 0
@@ -35,24 +35,30 @@ void setupDisplay() {
   pinMode(dataPin, OUTPUT);
   pinMode(latchPin, OUTPUT);
   pinMode(clkPin, OUTPUT);
-  pinMode(displayOnePin, OUTPUT);
-  pinMode(displayTwoPin, OUTPUT);
+//  pinMode(displayOnePin, OUTPUT);
+//  pinMode(displayTwoPin, OUTPUT);
 }
 
 // Show digit on the indicated display
-void setDisplay(int index, int digit) {
-  if (index == 1){
-    digitalWrite(displayOnePin, HIGH);
-    digitalWrite(displayTwoPin, LOW);
-    digitalWrite(latchPin, LOW);
-    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[digit]);
+void setDisplay(int score) {
+//  if (index == 1){
+//    digitalWrite(displayOnePin, HIGH);
+//    digitalWrite(displayTwoPin, LOW);
+//    digitalWrite(latchPin, LOW);
+//    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[digit]);
+//    digitalWrite(latchPin, HIGH);
+//    digitalWrite(displayOnePin, LOW);  
+//  }else{
+//    digitalWrite(displayTwoPin, HIGH);
+//    digitalWrite(latchPin, LOW);
+//    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[digit]);
+//    digitalWrite(latchPin, HIGH);
+//    digitalWrite(displayTwoPin, LOW);  
+//  } 
+    int i = score / 10;
+    int j = score % 10;
     digitalWrite(latchPin, HIGH);
-    digitalWrite(displayOnePin, LOW);  
-  }else{
-    digitalWrite(displayTwoPin, HIGH);
+    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[j]);
+    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[i]);
     digitalWrite(latchPin, LOW);
-    shiftOut(dataPin, clkPin, LSBFIRST, digits_cathode[digit]);
-    digitalWrite(latchPin, HIGH);
-    digitalWrite(displayTwoPin, LOW);  
-  } 
 }

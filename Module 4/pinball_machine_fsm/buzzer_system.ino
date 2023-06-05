@@ -26,7 +26,7 @@ void buzzerSystem(int state, long curTime) {
         }
       }else if (buzzerRoundLost == HIGH){
         // Turn on buzzer for 0.3s
-        if (curTime - buzzerTime < 300){
+        if (curTime - buzzerTime < 1500){
           tone(buzzerPin, 2000);
         }else{
           noTone(buzzerPin);
@@ -35,7 +35,7 @@ void buzzerSystem(int state, long curTime) {
         }
       }else{
         // Turn on buzzer of 1.5s
-        if (curTime - buzzerTime < 1500){
+        if (curTime - buzzerTime < 3000){
           tone(buzzerPin, 3000);
         }else{
           noTone(buzzerPin);

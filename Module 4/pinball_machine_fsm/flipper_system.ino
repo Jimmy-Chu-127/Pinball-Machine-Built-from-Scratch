@@ -1,7 +1,7 @@
 const int flipper1Pin = 5; 
 const int flipper2Pin = 6;
 const int flipper1ButtonPin = 22;
-const int flipper2ButtonPin = 23; 
+const int flipper2ButtonPin = 23;      
 
 //Set up pins
 void setupFlipper() {
@@ -13,12 +13,13 @@ void setupFlipper() {
 
 // Read from button 1
 int flipper1Button() {
-  //Serial.println(digitalRead(flipper1ButtonPin));
+  //Serial.println("f1: "+ String(digitalRead(flipper1ButtonPin)));
   return digitalRead(flipper1ButtonPin);
 }
 
 // Read from button 2
 int flipper2Button() {
+  //Serial.println("f2: "+ String(digitalRead(flipper2ButtonPin)));
   return digitalRead(flipper2ButtonPin);
 }
 

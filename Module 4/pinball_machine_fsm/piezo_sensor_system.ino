@@ -1,7 +1,7 @@
 const int piezo1Pin = A0; 
 const int piezo2Pin = A1;
 const int piezo3Pin = A2;
-const int pThreshold = 100;
+const int pThreshold = 600  ;
 
 int p1Val;
 int p2Val;
@@ -19,6 +19,13 @@ int piezoBallDetected() {
   p1Val = analogRead(piezo1Pin);
   p2Val = analogRead(piezo2Pin);
   p3Val = analogRead(piezo3Pin);
+//  Serial.print(p1Val);
+//  Serial.print(" ");
+//  Serial.print(p2Val);
+//  Serial.print(" ");
+//  Serial.print(p3Val);
+//  Serial.print(" ");  
+//  Serial.println("");
   if (p1Val > pThreshold || p2Val > pThreshold || p3Val > pThreshold){
     return HIGH;
   }

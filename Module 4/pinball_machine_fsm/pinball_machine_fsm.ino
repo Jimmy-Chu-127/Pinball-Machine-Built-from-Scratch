@@ -29,6 +29,9 @@ int servoState;
 int score = 0;
 int roundCnt = 3;
 
+int slingshot1State;
+int slingshot2State;
+
 // Define functions
 //void displayCurrentScore(){
 //  if(nowTime - displayTime > 20){
@@ -53,16 +56,17 @@ void setup() {
   setupServo();
   setupPower();
 
-  currentState = OFF;
+  currentState = ON;
 }
 
 void loop() {
+  //Serial.println(2);
   nowTime = millis();
-  if (powerButtonOn() == HIGH){
-    currentState = ON;
-  }else{
-    currentState = OFF;
-  }
+//  if (powerButtonOn() == HIGH){
+//    currentState = ON;
+//  }else{
+//    currentState = OFF;
+//  }
   
   switch (currentState) {
     case OFF:
@@ -80,7 +84,7 @@ void loop() {
       }
 
       // Check the piezo sensor system and the corresponding timer
-      if (piezoBallDetected() == HIGH && nowTime - piezoTime > 300){
+      if (piezoBallDetected() == HIGH && nowTime - piezoTime > 1000){
         currentState = SCORE;
         piezoTime = nowTime;
       }
@@ -91,7 +95,6 @@ void loop() {
 //        flipper1Time = nowTime;
 //      }
       if (flipper1Button() == HIGH){
-        //Serial.print(1);
         flipper1On();
       }else{
         flipper1Off();
@@ -110,9 +113,12 @@ void loop() {
 
       // Check slingshot1 system and the corresponding timer
       if (slingshot1Switch() == HIGH && nowTime - slingshot1Time > 300){
-        slingshot1Shot();
         slingshot1Time = nowTime;
+        slingshot1State = 1;
+      }else{
+        slingshot1State = 0;
       }
+      
 //      if (slingshot1Switch == HIGH){
 //        slingshot1On();
 //      }else{
@@ -121,9 +127,12 @@ void loop() {
 
       // Check slingshot2 system and the corresponding timer
       if (slingshot2Switch() == HIGH && nowTime - slingshot2Time > 300){
-        slingshot2Shot();
         slingshot2Time = nowTime;
+        slingshot2State = 1;
+      }else{
+        slingshot2State = 0;
       }
+      
 //      if (slingshot2Switch == HIGH){
 //        slingshot2On();
 //      }else{
@@ -131,9 +140,9 @@ void loop() {
 //      }      
 
       // Check the resetting system and the corresponding timer
-      if (ir3BallDetected() == HIGH && nowTime - ir2Time > 300 ){
+      if (ir3BallDetected() == HIGH && nowTime - ir3Time > 5000 ){
           //Serial.println("Detected");
-          roundCnt--;
+          roundCnt = roundCnt-1;
           if(roundCnt == 0){
             currentState = RESET;
             buzzerState = 2; // ring for 1.5s
@@ -181,9 +190,14 @@ void loop() {
 //  if(servoState == 1){
 //  Serial.println(servoState);
 //  }
+  slingshot1Shot(slingshot1State, nowTime);
+  slingshot2Shot(slingshot2State, nowTime);
+  
   setDisplay(score);
   setWheelSpeed();
   ledSystem(ledState, nowTime);
   buzzerSystem(buzzerState, nowTime);
   servoSystem(servoState, nowTime);
+  Serial.println(roundCnt);
+  //Serial.println("-------------------------------");
 }

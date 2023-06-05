@@ -10,7 +10,7 @@ const int irLED3Pin = 13;
 const int irRev3Pin = A5; 
 int ir3Val;
 
-const int threshold = 40;
+const int threshold = 300;
 
 // Set up pins
 void setupOpticalSensorSystem() {
@@ -24,7 +24,7 @@ void setupOpticalSensorSystem() {
 int ir1BallDetected() {
   ir1Val = analogRead(irRev1Pin);
   //Serial.println(ir1Val);
-  if (ir1Val <= 100){
+  if (ir1Val <= threshold){
     return LOW;
   }
   return HIGH;
@@ -33,6 +33,8 @@ int ir1BallDetected() {
 // Detect if the pinball passes through optical sensor circuit 2
 int ir2BallDetected() {
   ir2Val = analogRead(irRev2Pin);
+//  Serial.print(ir2Val);
+//  Serial.print(" ");
   if (ir2Val <= threshold){
     return LOW;
   }
@@ -42,8 +44,8 @@ int ir2BallDetected() {
 // Detect if the pinball passes through optical sensor circuit 3
 int ir3BallDetected() {
   ir3Val = analogRead(irRev3Pin);
-  //Serial.println(ir3Val);
-  if (ir3Val <= threshold){
+  Serial.println("IR: " + String(ir3Val));
+  if (ir3Val <= 300){
     return LOW;
   }
   return HIGH;

@@ -1,4 +1,4 @@
 CAD: Module 4/final_assem.SLDASM
-Arduino code: Module 4/pinball_machine_fsm
+Arduino code: Module 5/pinball_machine_fsm
 Most parts: Module 4
 Some parts: Module 2 revision

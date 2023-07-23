@@ -14,34 +14,34 @@
 ### Plunger subsystem
 |                    Block Diagram                     |   Circuit Diagram(sketches)    |
 |:----------------------------------------------------:|:------------------------------:|
-| ![block diagram](./images/plunger block diagram.png) |  ![circuit diagram](./images)  |
+| ![block diagram](./images/plunger_block_diagram.png) |  ![circuit diagram](./images)  |
 |                     CAD Picture                      |        Physical Picture        |
 |              ![CAD picture](./images/)               | ![physical picture](./images/) |
 
 ### IR subsystem
 |                  Block Diagram                  |                   Circuit Diagram                   |
 |:-----------------------------------------------:|:---------------------------------------------------:|
-| ![block diagram](./images/IR block diagram.png) | ![circuit diagram](./images/IR circuit diagram.png) |
+| ![block diagram](./images/IR_block_diagram.png) | ![circuit diagram](./images/IR_circuit_diagram.png) |
 |                   CAD Picture                   |                  Physical Picture                   |
 |            ![CAD picture](./images/)            |           ![physical picture](./images/)            |
 
 ### Flipper subsystem
 |                    Block Diagram                     |                     Circuit Diagram                      |
 |:----------------------------------------------------:|:--------------------------------------------------------:|
-| ![block diagram](./images/flipper block diagram.png) | ![circuit diagram](./images/flipper circuit diagram.png) |
+| ![block diagram](./images/flipper_block_diagram.png) | ![circuit diagram](./images/flipper_circuit_diagram.png) |
 |                     CAD Picture                      |                     Physical Picture                     |
 |              ![CAD picture](./images/)               |              ![physical picture](./images/)              |
 
 ### Spinning wheel subsystem
 |                        Block Diagram                        |                         Circuit Diagram                         |
 |:-----------------------------------------------------------:|:---------------------------------------------------------------:|
-| ![block diagram](./images/spinning wheel block diagram.png) | ![circuit diagram](./images/spinning wheel circuit diagram.png) |
+| ![block diagram](./images/spinning_wheel_block_diagram.png) | ![circuit diagram](./images/spinning_wheel_circuit_diagram.png) |
 |                         CAD Picture                         |                        Physical Picture                         |
 |                  ![CAD picture](./images/)                  |                 ![physical picture](./images/)                  |
 
 ### Slingshot subsystem
 |                     Block Diagram                      |                       Circuit Diagram                        |
 |:------------------------------------------------------:|:------------------------------------------------------------:|
-| ![block diagram](./images/slingshot block diagram.png) |  ![circuit diagram](./images/slingshot circuit diagram.png)  |
+| ![block diagram](./images/slingshot_block_diagram.png) |  ![circuit diagram](./images/slingshot_circuit_diagram.png)  |
 |                      CAD Picture                       |                       Physical Picture                       |
-|   ![CAD picture](./images/slingshot CAD picture.png)   | ![physical picture](./images/slingshot physical picture.png) |
+|   ![CAD picture](./images/slingshot_CAD_picture.png)   | ![physical picture](./images/slingshot_physical_picture.png) |

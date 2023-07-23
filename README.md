@@ -8,7 +8,7 @@
 ## Complete Physical Assembly
 |                       Top view                       |                        Bottom View                         |                          Isometric view                          |
 |:----------------------------------------------------:|:----------------------------------------------------------:|:----------------------------------------------------------------:|
-| ![top view](./images/physical assembly top view.png) | ![bottom view](./images/physical assembly bottom view.png) | ![isometric view](./images/physical assembly isometric view.png) |
+| ![top view](./images/physical_assembly_top_view.png) | ![bottom view](./images/physical_assembly_bottom_view.png) | ![isometric view](./images/physical_assembly_isometric_view.png) |
 
 ## Subsystem Level Design
 ### Plunger subsystem

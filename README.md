@@ -3,7 +3,7 @@
 ## Whole CAD Assembly View
 |                       Top view                        |                         Bottom View                         |                          Isometric view                           |
 |:-----------------------------------------------------:|:-----------------------------------------------------------:|:-----------------------------------------------------------------:|
-| ![top view](./images/whole CAD assembly top view.png) | ![bottom view](./images/whole CAD assembly bottom view.png) | ![isometric view](./images/whole CAD assembly isometric view.png) |
+| ![top view](./images/whole_CAD_assembly_top_view.png) | ![bottom view](./images/whole_CAD_assembly_bottom_view.png) | ![isometric view](./images/whole_CAD_assembly_isometric_view.png) |
 
 ## Complete Physical Assembly
 |                       Top view                       |                        Bottom View                         |                          Isometric view                          |

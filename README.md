@@ -4,7 +4,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="images/logo.png" alt="Logo" width=50% height=50%>
+    <img src="images/logo.png" alt="Logo" width=60% height=60%>
   </a>
   <h3 align="center">Pinball Machine Build from Scratch<br></h3>   
   <p align="center">

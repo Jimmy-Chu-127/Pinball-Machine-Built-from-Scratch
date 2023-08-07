@@ -1,5 +1,17 @@
 # Pinball Machine Built from Scratch
 
+<!-- PROJECT LOGO -->
+<br />
+<div align="center">
+  <a href="https://github.com/othneildrew/Best-README-Template">
+    <img src="img/logo.png" alt="Logo" width=50% height=50%>
+  </a>
+    
+  <p align="center">
+    Pinball Machine Build from Scratch<br>
+  </p>
+</div>
+
 ## Whole CAD Assembly View
 |                       Top view                        |                         Bottom View                         |                          Isometric view                           |
 |:-----------------------------------------------------:|:-----------------------------------------------------------:|:-----------------------------------------------------------------:|

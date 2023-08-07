@@ -6,7 +6,7 @@
   <a href="https://github.com/othneildrew/Best-README-Template">
     <img src="images/logo.png" alt="Logo" width=60% height=60%>
   </a>
-  <h3 align="center">Pinball Machine Build from Scratch<br></h3>   
+  <h3 align="center">Pinball Machine Built from Scratch<br></h3>   
   <p align="center">
     Haozhang Chu, Yichen Yang <br>
   </p>

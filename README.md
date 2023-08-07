@@ -4,11 +4,12 @@
 <br />
 <div align="center">
   <a href="https://github.com/othneildrew/Best-README-Template">
-    <img src="img/logo.png" alt="Logo" width=50% height=50%>
+    <img src="images/logo.png" alt="Logo" width=50% height=50%>
   </a>
     
   <p align="center">
     Pinball Machine Build from Scratch<br>
+    Collaborators: Haozhang Chu, Yichen Yang <br>
   </p>
 </div>
 
